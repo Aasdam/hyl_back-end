@@ -1,0 +1,3330 @@
+{
+	"info": {
+		"_postman_id": "044bffbc-cefe-43f6-8dc7-9c829d71aa9d",
+		"name": "P12_HYL",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "user-API",
+			"item": [
+				{
+					"name": "GET",
+					"item": [
+						{
+							"name": "get-user",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "d9f822d1-37f4-4260-a100-ae283f7e1182",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "idUser",
+										"value": "{{idUser}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{user_api_url}}/user/get-user",
+									"host": [
+										"{{user_api_url}}"
+									],
+									"path": [
+										"user",
+										"get-user"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get-id",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "25ab7467-ed89-4d16-a6d7-f32c4db18477",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "",
+										"value": "",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "{{user_api_url}}/user/get-id-by-email?email={{email}}",
+									"host": [
+										"{{user_api_url}}"
+									],
+									"path": [
+										"user",
+										"get-id-by-email"
+									],
+									"query": [
+										{
+											"key": "email",
+											"value": "{{email}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "check-email",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "0809d359-0851-4b66-843a-3e7b6b67eca3",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{user_api_url}}/user/check-email?email={{email}}",
+									"host": [
+										"{{user_api_url}}"
+									],
+									"path": [
+										"user",
+										"check-email"
+									],
+									"query": [
+										{
+											"key": "email",
+											"value": "{{email}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "check-cellphone",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "914dbc8e-4cf0-479a-b5e6-19813be9d7fd",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{user_api_url}}/user/check-cellphone?cellphone={{cellphone}}",
+									"host": [
+										"{{user_api_url}}"
+									],
+									"path": [
+										"user",
+										"check-cellphone"
+									],
+									"query": [
+										{
+											"key": "cellphone",
+											"value": "{{cellphone}}"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "POST",
+					"item": [
+						{
+							"name": "sign-in",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "47307174-4cdb-47f9-8272-4e09959a33e0",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"email\": \"{{email}}\",\n\t\"password\": \"{{password}}\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{user_api_url}}/user/signin",
+									"host": [
+										"{{user_api_url}}"
+									],
+									"path": [
+										"user",
+										"signin"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "sign-up",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "51ba278e-c466-413a-b5ba-d2e1c305c92d",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "724878e1-c6ee-428b-b8dc-f108f5f34553",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"email\": \"email@email.fr\",\n\t\"name\": \"nom\",\n\t\"surname\": \"prenom\",\n\t\"pseudo\": \"pseudo\",\n\t\"password\": \"password\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{user_api_url}}/user/signup",
+									"host": [
+										"{{user_api_url}}"
+									],
+									"path": [
+										"user",
+										"signup"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "sign-out",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "d75a2791-04de-4365-af8e-f36616bb37a9",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "idUser",
+										"value": "{{idUser}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "text"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{user_api_url}}/user/signout",
+									"host": [
+										"{{user_api_url}}"
+									],
+									"path": [
+										"user",
+										"signout"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "forgot-password",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "081b876a-67d6-4ca5-9dd9-e9964e1029aa",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"email\": \"{{email}}\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{user_api_url}}/user/forgot-password",
+									"host": [
+										"{{user_api_url}}"
+									],
+									"path": [
+										"user",
+										"forgot-password"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "PATCH",
+					"item": [
+						{
+							"name": "patch-user",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "f8eea110-faf8-48cb-bd3e-ba1a80ef1f0b",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "idUser",
+										"value": "{{idUser}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\": \"patch\",\n\t\"surname\": \"patch\",\n\t\"pseudo\": \"patch\",\n\t\"password\": \"{{password}}\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{user_api_url}}/user/patch-user",
+									"host": [
+										"{{user_api_url}}"
+									],
+									"path": [
+										"user",
+										"patch-user"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "045c877f-e285-4c33-b54a-788c657272c4",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "fe07504b-4f7d-4243-be38-67392f144b48",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "loan-API",
+			"item": [
+				{
+					"name": "GET",
+					"item": [
+						{
+							"name": "loans-in-progress",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "idUser",
+										"value": "{{idUser}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{loan_api_url}}/loan/in-progress",
+									"host": [
+										"{{loan_api_url}}"
+									],
+									"path": [
+										"loan",
+										"in-progress"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "loans-terminated",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "idUser",
+										"value": "{{idUser}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{loan_api_url}}/loan/terminated",
+									"host": [
+										"{{loan_api_url}}"
+									],
+									"path": [
+										"loan",
+										"terminated"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "check-subitem-available",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "fa08dd2a-8908-46b1-bf62-1d57e524b749",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "idUser",
+										"value": "{{idUser}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{loan_api_url}}/loan/check-sub-available?reference={{reference}}",
+									"host": [
+										"{{loan_api_url}}"
+									],
+									"path": [
+										"loan",
+										"check-sub-available"
+									],
+									"query": [
+										{
+											"key": "reference",
+											"value": "{{reference}}"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "POST",
+					"item": [
+						{
+							"name": "add-loan",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "idUser",
+										"value": "{{idUser}}",
+										"type": "text"
+									},
+									{
+										"key": "",
+										"value": "",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"startDate\": \"{{current_date}}\",\n\t\"reference\": \"{{reference}}\",\n\t\"beneficiary\": \"utilisateur\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{loan_api_url}}/loan/add-loan",
+									"host": [
+										"{{loan_api_url}}"
+									],
+									"path": [
+										"loan",
+										"add-loan"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "close-loans",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "idUser",
+										"value": "{{idUser}}",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "[\n\t{\n\t\t\"id\": \"5\",\n\t\t\"endDate\": \"{{current_date}}\",\n\t\t\"comment\": \"un commentaire envoyé par POSTMAN\"\n\t},\n\t{\n\t\t\"id\": \"6\",\n\t\t\"endDate\": \"{{current_date}}\",\n\t\t\"comment\": \"un commentaire envoyé par POSTMAN\"\n\t}\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{loan_api_url}}/loan/close-loans",
+									"host": [
+										"{{loan_api_url}}"
+									],
+									"path": [
+										"loan",
+										"close-loans"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "PATCH",
+					"item": [
+						{
+							"name": "update-reference",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "idUser",
+										"value": "{{idUser}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"oldReference\": \"{{reference}}\",\n\t\"newReference\": \"refUpdated\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{loan_api_url}}/loan/update-reference",
+									"host": [
+										"{{loan_api_url}}"
+									],
+									"path": [
+										"loan",
+										"update-reference"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "DELETE",
+					"item": [
+						{
+							"name": "delete-loans",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "idUser",
+										"value": "{{idUser}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{loan_api_url}}/loan/delete-loans?ids=7",
+									"host": [
+										"{{loan_api_url}}"
+									],
+									"path": [
+										"loan",
+										"delete-loans"
+									],
+									"query": [
+										{
+											"key": "ids",
+											"value": "7"
+										},
+										{
+											"key": "",
+											"value": "",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete-loans-by-reference",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "idUser",
+										"value": "{{idUser}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{loan_api_url}}/loan/delete-loans-by-reference?reference=refUpdated",
+									"host": [
+										"{{loan_api_url}}"
+									],
+									"path": [
+										"loan",
+										"delete-loans-by-reference"
+									],
+									"query": [
+										{
+											"key": "reference",
+											"value": "refUpdated"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "item-API",
+			"item": [
+				{
+					"name": "GET",
+					"item": [
+						{
+							"name": "check-category-name",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "idUser",
+										"value": "{{idUser}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{item_api_url}}/item/check-category-name?name={{category_name}}",
+									"host": [
+										"{{item_api_url}}"
+									],
+									"path": [
+										"item",
+										"check-category-name"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "{{category_name}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "check-item-name",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "idUser",
+										"value": "{{idUser}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{item_api_url}}/item/check-item-name?name={{item_name}}",
+									"host": [
+										"{{item_api_url}}"
+									],
+									"path": [
+										"item",
+										"check-item-name"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "{{item_name}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "check-subitem-reference",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "idUser",
+										"value": "{{idUser}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{item_api_url}}/item/check-sub-ref?reference={{reference}}",
+									"host": [
+										"{{item_api_url}}"
+									],
+									"path": [
+										"item",
+										"check-sub-ref"
+									],
+									"query": [
+										{
+											"key": "reference",
+											"value": "{{reference}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "check-category-depth",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "idUser",
+										"value": "{{idUser}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{item_api_url}}/item/check-category-depth?idCategory=1&idCategoryToMove=null&type=ADD_CHILD",
+									"host": [
+										"{{item_api_url}}"
+									],
+									"path": [
+										"item",
+										"check-category-depth"
+									],
+									"query": [
+										{
+											"key": "idCategory",
+											"value": "1"
+										},
+										{
+											"key": "idCategoryToMove",
+											"value": "null"
+										},
+										{
+											"key": "type",
+											"value": "ADD_CHILD"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "check-max-sub",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "idUser",
+										"value": "{{idUser}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{item_api_url}}/item/check-max-sub",
+									"host": [
+										"{{item_api_url}}"
+									],
+									"path": [
+										"item",
+										"check-max-sub"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get-comment",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "idUser",
+										"value": "{{idUser}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{item_api_url}}/item/get-comment?idLoan=1",
+									"host": [
+										"{{item_api_url}}"
+									],
+									"path": [
+										"item",
+										"get-comment"
+									],
+									"query": [
+										{
+											"key": "idLoan",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get-item",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "idUser",
+										"value": "{{idUser}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{item_api_url}}/item/",
+									"host": [
+										"{{item_api_url}}"
+									],
+									"path": [
+										"item",
+										""
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "POST",
+					"item": [
+						{
+							"name": "add-child-category",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "idUser",
+										"value": "{{idUser}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\": \"categoryC\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{item_api_url}}/item/add-child-category",
+									"host": [
+										"{{item_api_url}}"
+									],
+									"path": [
+										"item",
+										"add-child-category"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "add-parent-category",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "idUser",
+										"value": "{{idUser}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\": \"categoryP\",\n\t\"idChild\": \"1\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{item_api_url}}/item/add-parent-category",
+									"host": [
+										"{{item_api_url}}"
+									],
+									"path": [
+										"item",
+										"add-parent-category"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "add-item",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "idUser",
+										"value": "{{idUser}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "data",
+											"value": "{\"name\":\"nom\", \"description\":\"une description\", \"idCategory\": null, \"reference\":\"subitem\"}",
+											"contentType": "application/json",
+											"type": "text"
+										},
+										{
+											"key": "",
+											"value": "",
+											"contentType": "",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "",
+											"value": "",
+											"contentType": "",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{item_api_url}}/item/add-item",
+									"host": [
+										"{{item_api_url}}"
+									],
+									"path": [
+										"item",
+										"add-item"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "add-subitem",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "idUser",
+										"value": "1",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "data",
+											"value": "{\"reference\":\"subitem2\", \"idItem\": \"1\"}",
+											"contentType": "application/json",
+											"type": "text"
+										},
+										{
+											"key": "files",
+											"value": "",
+											"contentType": "",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "files",
+											"value": "",
+											"contentType": "",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{item_api_url}}/item/add-subitem",
+									"host": [
+										"{{item_api_url}}"
+									],
+									"path": [
+										"item",
+										"add-subitem"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "add-tracking-sheet",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "idUser",
+										"value": "{{idUser}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"comment\": \"un commentaire depuis POSTMAN\",\n\t\"idSubItem\": \"1\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{item_api_url}}/item/add-tracking-sheet",
+									"host": [
+										"{{item_api_url}}"
+									],
+									"path": [
+										"item",
+										"add-tracking-sheet"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "PATCH",
+					"item": [
+						{
+							"name": "rename-category",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "idUser",
+										"value": "{{idUser}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"id\": \"1\",\n\t\"name\": \"DéVéDé\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{item_api_url}}/item/rename-category",
+									"host": [
+										"{{item_api_url}}"
+									],
+									"path": [
+										"item",
+										"rename-category"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "move-category",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "fe684892-6a0b-42dd-b4ee-56704a244e5d",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "idUser",
+										"value": "{{idUser}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"id\": \"1\",\n\t\"idParent\": \"3\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{item_api_url}}/item/move-category",
+									"host": [
+										"{{item_api_url}}"
+									],
+									"path": [
+										"item",
+										"move-category"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "rename-item",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "idUser",
+										"value": "{{idUser}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"id\": \"1\",\n\t\"name\": \"Gladiateur\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{item_api_url}}/item/rename-item",
+									"host": [
+										"{{item_api_url}}"
+									],
+									"path": [
+										"item",
+										"rename-item"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "move-item",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "idUser",
+										"value": "{{idUser}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"id\": \"1\",\n\t\"idCategory\": \"3\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{item_api_url}}/item/move-item",
+									"host": [
+										"{{item_api_url}}"
+									],
+									"path": [
+										"item",
+										"move-item"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "rename-subitem",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "idUser",
+										"value": "{{idUser}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"id\": \"1\",\n\t\"reference\": \"Gladiator##1\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{item_api_url}}/item/rename-subitem",
+									"host": [
+										"{{item_api_url}}"
+									],
+									"path": [
+										"item",
+										"rename-subitem"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "edit-subitem",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "idUser",
+										"value": "{{idUser}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "data",
+											"value": "{\"idSubItem\": \"1\", \"reference\": \"Gladiator#1\"}",
+											"contentType": "application/json",
+											"type": "text"
+										}
+									],
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{item_api_url}}/item/edit-subitem",
+									"host": [
+										"{{item_api_url}}"
+									],
+									"path": [
+										"item",
+										"edit-subitem"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "DELETE",
+					"item": [
+						{
+							"name": "delete-tracking-sheets",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "idUser",
+										"value": "{{idUser}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{item_api_url}}/item/delete-tracking-sheets?ids=1",
+									"host": [
+										"{{item_api_url}}"
+									],
+									"path": [
+										"item",
+										"delete-tracking-sheets"
+									],
+									"query": [
+										{
+											"key": "ids",
+											"value": "1"
+										},
+										{
+											"key": "",
+											"value": "",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete-tracking-sheets-by-id-subitem",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "idUser",
+										"value": "{{idUser}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{item_api_url}}/item/delete-tracking-sheets-by-id-subitem?idSubItem=1",
+									"host": [
+										"{{item_api_url}}"
+									],
+									"path": [
+										"item",
+										"delete-tracking-sheets-by-id-subitem"
+									],
+									"query": [
+										{
+											"key": "idSubItem",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete-tracking-sheets-by-ids-loan",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "idUser",
+										"value": "{{idUser}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{item_api_url}}/item/delete-tracking-sheets-by-ids-loan?ids=2",
+									"host": [
+										"{{item_api_url}}"
+									],
+									"path": [
+										"item",
+										"delete-tracking-sheets-by-ids-loan"
+									],
+									"query": [
+										{
+											"key": "ids",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete-category",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "idUser",
+										"value": "{{idUser}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{item_api_url}}/item/delete-category?id=1",
+									"host": [
+										"{{item_api_url}}"
+									],
+									"path": [
+										"item",
+										"delete-category"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete-subitem",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "idUser",
+										"value": "{{idUser}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{item_api_url}}/item/delete-subitem?id=1",
+									"host": [
+										"{{item_api_url}}"
+									],
+									"path": [
+										"item",
+										"delete-subitem"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete-item",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "idUser",
+										"value": "{{idUser}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{item_api_url}}/item/delete-item?id=1",
+									"host": [
+										"{{item_api_url}}"
+									],
+									"path": [
+										"item",
+										"delete-item"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "gateway-server",
+			"item": [
+				{
+					"name": "gs: user-API",
+					"item": [
+						{
+							"name": "GET",
+							"item": [
+								{
+									"name": "gs: get-user",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "d9f822d1-37f4-4260-a100-ae283f7e1182",
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "idUser",
+												"value": "{{idUser}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{gateway_url}}/user/get-user",
+											"host": [
+												"{{gateway_url}}"
+											],
+											"path": [
+												"user",
+												"get-user"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "gs: get-id",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "25ab7467-ed89-4d16-a6d7-f32c4db18477",
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "idUser",
+												"value": "{{idUser}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{gateway_url}}/user/get-id-by-email?email={{email}}",
+											"host": [
+												"{{gateway_url}}"
+											],
+											"path": [
+												"user",
+												"get-id-by-email"
+											],
+											"query": [
+												{
+													"key": "email",
+													"value": "{{email}}"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "gs: check-email",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "0809d359-0851-4b66-843a-3e7b6b67eca3",
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{gateway_url}}/user/check-email?email={{email}}",
+											"host": [
+												"{{gateway_url}}"
+											],
+											"path": [
+												"user",
+												"check-email"
+											],
+											"query": [
+												{
+													"key": "email",
+													"value": "{{email}}"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "gs: check-cellphone",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "914dbc8e-4cf0-479a-b5e6-19813be9d7fd",
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{gateway_url}}/user/check-cellphone?cellphone={{cellphone}}",
+											"host": [
+												"{{gateway_url}}"
+											],
+											"path": [
+												"user",
+												"check-cellphone"
+											],
+											"query": [
+												{
+													"key": "cellphone",
+													"value": "{{cellphone}}"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"protocolProfileBehavior": {},
+							"_postman_isSubFolder": true
+						},
+						{
+							"name": "POST",
+							"item": [
+								{
+									"name": "gs: sign-in",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "8f366c0f-4dd6-4276-80a3-9b72440874c2",
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										},
+										{
+											"listen": "prerequest",
+											"script": {
+												"id": "14aad251-6393-4219-89d8-8f51b94f6c8e",
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\t\"email\": \"{{email}}\",\n\t\"password\": \"{{password}}\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{gateway_url}}/signin",
+											"host": [
+												"{{gateway_url}}"
+											],
+											"path": [
+												"signin"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "gs: sign-up",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "51ba278e-c466-413a-b5ba-d2e1c305c92d",
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										},
+										{
+											"listen": "prerequest",
+											"script": {
+												"id": "724878e1-c6ee-428b-b8dc-f108f5f34553",
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\t\"email\": \"email2@email.fr\",\n\t\"name\": \"nom\",\n\t\"surname\": \"prenom\",\n\t\"pseudo\": \"pseudo\",\n\t\"password\": \"password\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{gateway_url}}/signup",
+											"host": [
+												"{{gateway_url}}"
+											],
+											"path": [
+												"signup"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "gs: sign-out",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "d75a2791-04de-4365-af8e-f36616bb37a9",
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "idUser",
+												"value": "{{idUser}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "text"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{gateway_url}}/user/signout",
+											"host": [
+												"{{gateway_url}}"
+											],
+											"path": [
+												"user",
+												"signout"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "gs: forgot-password",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "081b876a-67d6-4ca5-9dd9-e9964e1029aa",
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "idUser",
+												"value": "{{idUser}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\t\"email\": \"{{email}}\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{gateway_url}}/user/forgot-password",
+											"host": [
+												"{{gateway_url}}"
+											],
+											"path": [
+												"user",
+												"forgot-password"
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"protocolProfileBehavior": {},
+							"_postman_isSubFolder": true
+						},
+						{
+							"name": "PATCH",
+							"item": [
+								{
+									"name": "gs: patch-user",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "f8eea110-faf8-48cb-bd3e-ba1a80ef1f0b",
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "idUser",
+												"value": "{{idUser}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\t\"name\": \"patchBis\",\n\t\"surname\": \"patchBis\",\n\t\"pseudo\": \"patchBis\",\n\t\"password\": \"{{password}}\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{gateway_url}}/user/patch-user",
+											"host": [
+												"{{gateway_url}}"
+											],
+											"path": [
+												"user",
+												"patch-user"
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"protocolProfileBehavior": {},
+							"_postman_isSubFolder": true
+						}
+					],
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "045c877f-e285-4c33-b54a-788c657272c4",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "fe07504b-4f7d-4243-be38-67392f144b48",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "gs: loan-API",
+					"item": [
+						{
+							"name": "GET",
+							"item": [
+								{
+									"name": "gs: loans-in-progress",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "idUser",
+												"value": "{{idUser}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{gateway_url}}/loan/in-progress",
+											"host": [
+												"{{gateway_url}}"
+											],
+											"path": [
+												"loan",
+												"in-progress"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "gs: loans-terminated",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "idUser",
+												"value": "{{idUser}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{gateway_url}}/loan/terminated",
+											"host": [
+												"{{gateway_url}}"
+											],
+											"path": [
+												"loan",
+												"terminated"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "gs: check-subitem-available",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "fa08dd2a-8908-46b1-bf62-1d57e524b749",
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "idUser",
+												"value": "{{idUser}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{gateway_url}}/loan/check-sub-available?reference={{reference}}",
+											"host": [
+												"{{gateway_url}}"
+											],
+											"path": [
+												"loan",
+												"check-sub-available"
+											],
+											"query": [
+												{
+													"key": "reference",
+													"value": "{{reference}}"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"protocolProfileBehavior": {},
+							"_postman_isSubFolder": true
+						},
+						{
+							"name": "POST",
+							"item": [
+								{
+									"name": "gs: add-loan",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "idUser",
+												"value": "{{idUser}}",
+												"type": "text"
+											},
+											{
+												"key": "",
+												"value": "",
+												"type": "text",
+												"disabled": true
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\t\"startDate\": \"{{current_date}}\",\n\t\"reference\": \"{{reference_bis}}\",\n\t\"beneficiary\": \"utilisateur\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{gateway_url}}/loan/add-loan",
+											"host": [
+												"{{gateway_url}}"
+											],
+											"path": [
+												"loan",
+												"add-loan"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "gs: close-loans",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "idUser",
+												"value": "{{idUser}}",
+												"type": "text"
+											},
+											{
+												"key": "Authorization",
+												"value": "",
+												"type": "text",
+												"disabled": true
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "[\n\t{\n\t\t\"id\": \"9\",\n\t\t\"endDate\": \"{{current_date}}\",\n\t\t\"comment\": \"un commentaire envoyé par POSTMAN\"\n\t}\n]",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{gateway_url}}/loan/close-loans",
+											"host": [
+												"{{gateway_url}}"
+											],
+											"path": [
+												"loan",
+												"close-loans"
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"protocolProfileBehavior": {},
+							"_postman_isSubFolder": true
+						},
+						{
+							"name": "PATCH",
+							"item": [
+								{
+									"name": "gs: update-reference",
+									"request": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "idUser",
+												"value": "{{idUser}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\t\"oldReference\": \"{{reference_bis}}\",\n\t\"newReference\": \"refUpdatedBis\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{gateway_url}}/loan/update-reference",
+											"host": [
+												"{{gateway_url}}"
+											],
+											"path": [
+												"loan",
+												"update-reference"
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"protocolProfileBehavior": {},
+							"_postman_isSubFolder": true
+						},
+						{
+							"name": "DELETE",
+							"item": [
+								{
+									"name": "gs: delete-loans",
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "idUser",
+												"value": "{{idUser}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{gateway_url}}/loan/delete-loans?ids=4",
+											"host": [
+												"{{gateway_url}}"
+											],
+											"path": [
+												"loan",
+												"delete-loans"
+											],
+											"query": [
+												{
+													"key": "ids",
+													"value": "4"
+												},
+												{
+													"key": "",
+													"value": "",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "gs: delete-loans-by-reference",
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "idUser",
+												"type": "text",
+												"value": "{{idUser}}"
+											}
+										],
+										"url": {
+											"raw": "{{gateway_url}}/loan/delete-loans-by-reference?reference=refUpdatedBis",
+											"host": [
+												"{{gateway_url}}"
+											],
+											"path": [
+												"loan",
+												"delete-loans-by-reference"
+											],
+											"query": [
+												{
+													"key": "reference",
+													"value": "refUpdatedBis"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"protocolProfileBehavior": {},
+							"_postman_isSubFolder": true
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "gs: item-API",
+					"item": [
+						{
+							"name": "GET",
+							"item": [
+								{
+									"name": "gs: check-category-name",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "idUser",
+												"value": "{{idUser}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{gateway_url}}/item/check-category-name?name={{category_name_bis}}",
+											"host": [
+												"{{gateway_url}}"
+											],
+											"path": [
+												"item",
+												"check-category-name"
+											],
+											"query": [
+												{
+													"key": "name",
+													"value": "{{category_name_bis}}"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "gs: check-item-name",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "idUser",
+												"value": "{{idUser}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{gateway_url}}/item/check-item-name?name={{item_name_bis}}",
+											"host": [
+												"{{gateway_url}}"
+											],
+											"path": [
+												"item",
+												"check-item-name"
+											],
+											"query": [
+												{
+													"key": "name",
+													"value": "{{item_name_bis}}"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "gs: check-subitem-reference",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "idUser",
+												"value": "{{idUser}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{gateway_url}}/item/check-sub-ref?reference={{reference_bis}}",
+											"host": [
+												"{{gateway_url}}"
+											],
+											"path": [
+												"item",
+												"check-sub-ref"
+											],
+											"query": [
+												{
+													"key": "reference",
+													"value": "{{reference_bis}}"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "gs: check-category-depth",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "idUser",
+												"value": "{{idUser}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{gateway_url}}/item/check-category-depth?idCategory=2&idCategoryToMove=null&type=ADD_CHILD",
+											"host": [
+												"{{gateway_url}}"
+											],
+											"path": [
+												"item",
+												"check-category-depth"
+											],
+											"query": [
+												{
+													"key": "idCategory",
+													"value": "2"
+												},
+												{
+													"key": "idCategoryToMove",
+													"value": "null"
+												},
+												{
+													"key": "type",
+													"value": "ADD_CHILD"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "gs: check-max-sub",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "idUser",
+												"value": "{{idUser}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{gateway_url}}/item/check-max-sub",
+											"host": [
+												"{{gateway_url}}"
+											],
+											"path": [
+												"item",
+												"check-max-sub"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "gs: get-comment",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "idUser",
+												"value": "{{idUser}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{gateway_url}}/item/get-comment?idLoan=3",
+											"host": [
+												"{{gateway_url}}"
+											],
+											"path": [
+												"item",
+												"get-comment"
+											],
+											"query": [
+												{
+													"key": "idLoan",
+													"value": "3"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "gs: get-item",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "idUser",
+												"value": "{{idUser}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{gateway_url}}/item/",
+											"host": [
+												"{{gateway_url}}"
+											],
+											"path": [
+												"item",
+												""
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"protocolProfileBehavior": {},
+							"_postman_isSubFolder": true
+						},
+						{
+							"name": "POST",
+							"item": [
+								{
+									"name": "gs: add-child-category",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "idUser",
+												"value": "{{idUser}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\t\"name\": \"categoryCbis\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{gateway_url}}/item/add-child-category",
+											"host": [
+												"{{gateway_url}}"
+											],
+											"path": [
+												"item",
+												"add-child-category"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "gs: add-parent-category",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "idUser",
+												"value": "{{idUser}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\t\"name\": \"categoryPbis\",\n\t\"idChild\": \"5\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{gateway_url}}/item/add-parent-category",
+											"host": [
+												"{{gateway_url}}"
+											],
+											"path": [
+												"item",
+												"add-parent-category"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "gs: add-item",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "idUser",
+												"value": "{{idUser}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "data",
+													"value": "{\"name\":\"nombis\", \"description\":\"une description\", \"idCategory\": null, \"reference\":\"subitembis\"}",
+													"contentType": "application/json",
+													"type": "text"
+												},
+												{
+													"key": "",
+													"value": "",
+													"contentType": "",
+													"type": "text",
+													"disabled": true
+												},
+												{
+													"key": "",
+													"value": "",
+													"contentType": "",
+													"type": "text",
+													"disabled": true
+												}
+											]
+										},
+										"url": {
+											"raw": "{{gateway_url}}/item/add-item",
+											"host": [
+												"{{gateway_url}}"
+											],
+											"path": [
+												"item",
+												"add-item"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "gs: add-subitem",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "idUser",
+												"value": "1",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "data",
+													"value": "{\"reference\":\"subitem2bis\", \"idItem\": \"2\"}",
+													"contentType": "application/json",
+													"type": "text"
+												},
+												{
+													"key": "files",
+													"value": "",
+													"contentType": "",
+													"type": "text",
+													"disabled": true
+												},
+												{
+													"key": "files",
+													"value": "",
+													"contentType": "",
+													"type": "text",
+													"disabled": true
+												}
+											]
+										},
+										"url": {
+											"raw": "{{gateway_url}}/item/add-subitem",
+											"host": [
+												"{{gateway_url}}"
+											],
+											"path": [
+												"item",
+												"add-subitem"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "gs: add-tracking-sheet",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "idUser",
+												"value": "{{idUser}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\t\"comment\": \"un commentaire depuis POSTMAN\",\n\t\"idSubItem\": \"3\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{gateway_url}}/item/add-tracking-sheet",
+											"host": [
+												"{{gateway_url}}"
+											],
+											"path": [
+												"item",
+												"add-tracking-sheet"
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"protocolProfileBehavior": {},
+							"_postman_isSubFolder": true
+						},
+						{
+							"name": "PATCH",
+							"item": [
+								{
+									"name": "gs: rename-category",
+									"request": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "idUser",
+												"value": "{{idUser}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\t\"id\": \"3\",\n\t\"name\": \"bis\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{gateway_url}}/item/rename-category",
+											"host": [
+												"{{gateway_url}}"
+											],
+											"path": [
+												"item",
+												"rename-category"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "gs: move-category",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"id": "fe684892-6a0b-42dd-b4ee-56704a244e5d",
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "idUser",
+												"value": "{{idUser}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\t\"id\": \"3\",\n\t\"idParent\": \"5\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{gateway_url}}/item/move-category",
+											"host": [
+												"{{gateway_url}}"
+											],
+											"path": [
+												"item",
+												"move-category"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "gs: rename-item",
+									"request": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "idUser",
+												"value": "{{idUser}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\t\"id\": \"2\",\n\t\"name\": \"bisItem\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{gateway_url}}/item/rename-item",
+											"host": [
+												"{{gateway_url}}"
+											],
+											"path": [
+												"item",
+												"rename-item"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "gs: move-item",
+									"request": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "idUser",
+												"value": "{{idUser}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\t\"id\": \"3\",\n\t\"idCategory\": \"0\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{gateway_url}}/item/move-item",
+											"host": [
+												"{{gateway_url}}"
+											],
+											"path": [
+												"item",
+												"move-item"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "gs: rename-subitem",
+									"request": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "idUser",
+												"type": "text",
+												"value": "{{idUser}}"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\t\"id\": \"4\",\n\t\"reference\": \"bisSubItem\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{gateway_url}}/item/rename-subitem",
+											"host": [
+												"{{gateway_url}}"
+											],
+											"path": [
+												"item",
+												"rename-subitem"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "gs: edit-subitem",
+									"request": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "idUser",
+												"value": "{{idUser}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "data",
+													"value": "{\"idSubItem\": \"4\", \"reference\": \"referenceUp\"}",
+													"contentType": "application/json",
+													"type": "text"
+												}
+											],
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{gateway_url}}/item/edit-subitem",
+											"host": [
+												"{{gateway_url}}"
+											],
+											"path": [
+												"item",
+												"edit-subitem"
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"protocolProfileBehavior": {},
+							"_postman_isSubFolder": true
+						},
+						{
+							"name": "DELETE",
+							"item": [
+								{
+									"name": "gs: delete-tracking-sheets",
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "idUser",
+												"value": "{{idUser}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{gateway_url}}/item/delete-tracking-sheets?ids=3",
+											"host": [
+												"{{gateway_url}}"
+											],
+											"path": [
+												"item",
+												"delete-tracking-sheets"
+											],
+											"query": [
+												{
+													"key": "",
+													"value": "",
+													"disabled": true
+												},
+												{
+													"key": "ids",
+													"value": "3"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "gs: delete-tracking-sheets-by-id-subitem",
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "idUser",
+												"value": "{{idUser}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{gateway_url}}/item/delete-tracking-sheets-by-id-subitem?idSubItem=4",
+											"host": [
+												"{{gateway_url}}"
+											],
+											"path": [
+												"item",
+												"delete-tracking-sheets-by-id-subitem"
+											],
+											"query": [
+												{
+													"key": "idSubItem",
+													"value": "4"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "gs: delete-tracking-sheets-by-ids-loan",
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "idUser",
+												"value": "{{idUser}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{gateway_url}}/item/delete-tracking-sheets-by-ids-loan?ids=6",
+											"host": [
+												"{{gateway_url}}"
+											],
+											"path": [
+												"item",
+												"delete-tracking-sheets-by-ids-loan"
+											],
+											"query": [
+												{
+													"key": "ids",
+													"value": "6"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "gs: delete-category",
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "idUser",
+												"value": "{{idUser}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{gateway_url}}/item/delete-category?id=2",
+											"host": [
+												"{{gateway_url}}"
+											],
+											"path": [
+												"item",
+												"delete-category"
+											],
+											"query": [
+												{
+													"key": "id",
+													"value": "2"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "gs: delete-subitem",
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "idUser",
+												"value": "{{idUser}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{gateway_url}}/item/delete-subitem?id=3",
+											"host": [
+												"{{gateway_url}}"
+											],
+											"path": [
+												"item",
+												"delete-subitem"
+											],
+											"query": [
+												{
+													"key": "id",
+													"value": "3"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "gs: delete-item",
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "idUser",
+												"value": "{{idUser}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{gateway_url}}/item/delete-item?id=2",
+											"host": [
+												"{{gateway_url}}"
+											],
+											"path": [
+												"item",
+												"delete-item"
+											],
+											"query": [
+												{
+													"key": "id",
+													"value": "2"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"protocolProfileBehavior": {},
+							"_postman_isSubFolder": true
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "ab05c2c9-588d-48c1-93e5-58baf325a705",
+				"type": "text/javascript",
+				"exec": [
+					"pm.collectionVariables.set(\"current_date\", Date.now());",
+					"",
+					"if (pm.collectionVariables.get(\"load_config\") ==='true') {",
+					"",
+					"   pm.collectionVariables.set(\"load_config\", 'false');",
+					"",
+					"",
+					"    pm.sendRequest({",
+					"        url: pm.collectionVariables.get(\"gateway_url\") + '/signin',",
+					"        method: 'POST',",
+					"        header: {",
+					"            'content-type': 'application/json',",
+					"        },",
+					"        body: {",
+					"            mode: 'raw',",
+					"            raw: JSON.stringify({ email: pm.collectionVariables.get(\"email\"), password: pm.collectionVariables.get(\"password\") })",
+					"        }",
+					"    }, function (err, res) {",
+					"        pm.collectionVariables.set(\"token\", res.json().token);",
+					"        pm.collectionVariables.set(\"idUser\", res.json().idUser);",
+					"        ",
+					"    });",
+					"}"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "19b79dcd-1c2c-4edd-8eb0-553101b726a0",
+				"type": "text/javascript",
+				"exec": [
+					"pm.test(\"Status code is 200\", function () {",
+					"    pm.response.to.have.status(200);",
+					"});"
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "66aa7723-def7-4098-8bc9-c0334c63322b",
+			"key": "load_config",
+			"value": "true",
+			"type": "string"
+		},
+		{
+			"id": "be7b76e8-5abf-44a1-97be-0e382161b954",
+			"key": "gateway_url",
+			"value": "http://localhost:8080",
+			"type": "string"
+		},
+		{
+			"id": "e6ead44b-5a87-41ad-897f-bf4ef78bc487",
+			"key": "user_api_url",
+			"value": "http://localhost:9000",
+			"type": "string"
+		},
+		{
+			"id": "428d3a6d-8106-4887-93b6-540f1b5ac1ee",
+			"key": "loan_api_url",
+			"value": "http://localhost:9100",
+			"type": "string"
+		},
+		{
+			"id": "982594b2-4a67-4a55-a7c6-cef5af17f6f4",
+			"key": "item_api_url",
+			"value": "http://localhost:9200",
+			"type": "string"
+		},
+		{
+			"id": "961ec0d6-4b64-4b7b-8f0e-a56e94d37e40",
+			"key": "idUser",
+			"value": "1",
+			"type": "string"
+		},
+		{
+			"id": "ffb1dc87-d5d0-4c54-8994-54be8f29496b",
+			"key": "token",
+			"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhc2FkYW1zODlAZ21haWwuY29tIiwicm9sZSI6WyJST0xFX1VTRVIiXSwiZXhwIjoxNTg1NzAxNTc0LCJpYXQiOjE1ODU2NzI3NzR9.l9kFs7Z60Y6StqSncZwo9uw2gGzO1E2ScFXGxCIakBjgXSwdFyidW8YTW9IWiuP1uHACLNEHY3Lt3On95L9C3Q",
+			"type": "string"
+		},
+		{
+			"id": "e7ea9b21-d4e6-4e4e-9318-3ae0a7a54d2d",
+			"key": "email",
+			"value": "asadams89@gmail.com",
+			"type": "string"
+		},
+		{
+			"id": "7f3010bf-6901-4d73-92d7-00ad5124cc54",
+			"key": "password",
+			"value": "password",
+			"type": "string"
+		},
+		{
+			"id": "56b8a24d-7b3f-400f-8d9f-82be726acab6",
+			"key": "cellphone",
+			"value": "0602160808",
+			"type": "string"
+		},
+		{
+			"id": "4e92ceb8-232c-48aa-b4a7-1e6c67b87a20",
+			"key": "current_date",
+			"value": 1585672785184,
+			"type": "number"
+		},
+		{
+			"id": "9a46a3be-5ced-4437-9e96-245dcd269217",
+			"key": "reference",
+			"value": "Gladiator#1",
+			"type": "string"
+		},
+		{
+			"id": "5a7626f0-b5c5-4194-9c1d-9302be20d269",
+			"key": "category_name",
+			"value": "DVD",
+			"type": "string"
+		},
+		{
+			"id": "bf46676b-eb32-4461-b374-3c7469c395c0",
+			"key": "item_name",
+			"value": "Gladiator",
+			"type": "string"
+		},
+		{
+			"id": "d0da946e-ff3e-4615-a635-dcf7d6c8ba61",
+			"key": "reference_bis",
+			"value": "Lamiel#1",
+			"type": "string"
+		},
+		{
+			"id": "f6aacdb2-0817-455f-901d-eafb9f1c0f5e",
+			"key": "category_name_bis",
+			"value": "Livre",
+			"type": "string"
+		},
+		{
+			"id": "fb262199-53fc-4d60-ba33-0acbab7398c1",
+			"key": "item_name_bis",
+			"value": "Lamiel",
+			"type": "string"
+		}
+	],
+	"protocolProfileBehavior": {}
+}
